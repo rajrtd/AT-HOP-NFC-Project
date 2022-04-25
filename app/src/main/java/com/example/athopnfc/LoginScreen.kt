@@ -3,10 +3,11 @@ package com.example.athopnfc
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 //Here we can see the AppCompatActivity() extend
-class LoginScreen : AppCompatActivity() {
+class LoginScreen : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.log_in_screen)
@@ -28,5 +29,13 @@ class CreateAccount : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //In here make sure to set the content to the new XML screen.
         setContentView(R.layout.create_account_screen)
+
+        val creatAccButt:Button = findViewById(R.id.createAccountButton)
+        creatAccButt.setOnClickListener {
+            var emailTextView:TextView = findViewById(R.id.signUpEmailField)
+            var email:String = emailTextView.text.toString()
+            
+        }
+
     }
 }
