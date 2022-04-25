@@ -3,7 +3,7 @@ package com.example.athopnfc
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 
 //Here we can see the AppCompatActivity() extend
@@ -25,17 +25,32 @@ class LoginScreen : AppCompatActivity()  {
 }
 
 class CreateAccount : AppCompatActivity() {
+
+    //Declare all the buttons and textFields
+    private lateinit var emailEditText: EditText
+    private lateinit var passwordEditText: EditText
+    private lateinit var confirmPassEditText: EditText
+    private lateinit var btnCreateAccount: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //In here make sure to set the content to the new XML screen.
         setContentView(R.layout.create_account_screen)
 
-        val creatAccButt:Button = findViewById(R.id.createAccountButton)
-        creatAccButt.setOnClickListener {
-            var emailTextView:TextView = findViewById(R.id.signUpEmailField)
-            var email:String = emailTextView.text.toString()
-            
-        }
+        //Initialize buttons and textFields here
+        emailEditText = findViewById(R.id.signUpEmailField)
+        passwordEditText = findViewById(R.id.signUpPasswordField)
+        confirmPassEditText = findViewById(R.id.confirmPasswordField)
+        
+    }
 
+    private fun enableCreateAccountButton() : Boolean {
+        if(emailEditText.text.isBlank() || passwordEditText.text.isBlank() || confirmPassEditText.text.isBlank()){
+            return false
+        }
+        if(passwordEditText.text != confirmPassEditText.text){
+            return false
+        }
+        return true
     }
 }

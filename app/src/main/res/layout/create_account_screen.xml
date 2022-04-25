@@ -36,7 +36,7 @@
                 android:inputType="textEmailAddress"
                 android:ems="15"
                 android:id="@+id/signUpEmailField" android:hint="Email..."
-                android:singleLine="false" android:background="#fffcc8" android:gravity="center"
+                android:maxLines="1" android:digits="1234567890abcdefghijklmnopqrstuvwxyz_-.@" android:background="#fffcc8" android:gravity="center"
                 android:layout_weight="0" android:layout_gravity="center" android:minHeight="48dp"
         />
         <EditText
@@ -46,14 +46,16 @@
                 android:ems="15"
                 android:id="@+id/signUpPasswordField"
                 android:hint="Password..."
+                android:maxLines="1" android:digits="1234567890abcdefghijklmnopqrstuvwxyz_-.@"
                 android:background="#fffcc8" android:layout_gravity="center"
                 android:gravity="center" android:layout_weight="0" android:minHeight="48dp"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:maxLines="1" android:digits="1234567890abcdefghijklmnopqrstuvwxyz_-.@"
                 android:ems="10"
-                android:id="@+id/cofirmPasswordField" android:layout_weight="0" android:background="#fffcc8"
+                android:id="@+id/confirmPasswordField" android:layout_weight="0" android:background="#fffcc8"
                 android:hint="Confirm Password..." android:gravity="center" android:minHeight="48dp"/>
         <Button
                 android:text="Create Account"
