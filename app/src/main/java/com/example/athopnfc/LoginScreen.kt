@@ -4,53 +4,40 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 //Here we can see the AppCompatActivity() extend
-class LoginScreen : AppCompatActivity()  {
+class LoginScreen : AppCompatActivity(), UserFunctions {
+    private lateinit var logInEmailEditText: EditText
+    private lateinit var logInPasswordEditText: EditText
+    private lateinit var signUpButton: Button
+    private lateinit var logInButton: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.log_in_screen)
 
         //Here I am declaring a button and giving it the XML button via ID, in your case do findViewByID(R.id.idofthebutton)
-        val sUButton: Button = findViewById(R.id.signUpButton)
+        signUpButton = findViewById(R.id.signUpButton)
+        logInButton = findViewById(R.id.logInButton)
+        logInEmailEditText = findViewById(R.id.emailField)
+        logInPasswordEditText = findViewById(R.id.passwordField)
+
         //Now that I have the button object I can access the action listener
-        sUButton.setOnClickListener {
+        signUpButton.setOnClickListener {
             //Making an intent object i think, well you just give it this class and the next one.
             val intent = Intent(this, CreateAccount::class.java)
             //dont forget this part which makes it run.
             startActivity(intent)
+        }
+        logInButton.setOnClickListener {
+            if(validateEmail(logInEmailEditText) && validatePassword(logInPasswordEditText)){
+                val user = User(logInEmailEditText.text.toString(), logInPasswordEditText.text.toString())
+                Toast.makeText(this@LoginScreen, user.emailAddress, Toast.LENGTH_LONG).show()
             }
-    }
-}
-
-class CreateAccount : AppCompatActivity() {
-
-    //Declare all the buttons and textFields
-    private lateinit var emailEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var confirmPassEditText: EditText
-    private lateinit var btnCreateAccount: Button
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        //In here make sure to set the content to the new XML screen.
-        setContentView(R.layout.create_account_screen)
-
-        //Initialize buttons and textFields here
-        emailEditText = findViewById(R.id.signUpEmailField)
-        passwordEditText = findViewById(R.id.signUpPasswordField)
-        confirmPassEditText = findViewById(R.id.confirmPasswordField)
-        
-    }
-
-    private fun enableCreateAccountButton() : Boolean {
-        if(emailEditText.text.isBlank() || passwordEditText.text.isBlank() || confirmPassEditText.text.isBlank()){
-            return false
         }
-        if(passwordEditText.text != confirmPassEditText.text){
-            return false
-        }
-        return true
     }
+
+
 }
