@@ -1,5 +1,6 @@
 package com.example.athopnfc
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -18,6 +19,12 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.log_in_screen)
 
+        val account = getAccountPreference()
+        if(account.emailAddress != null && account.password != null){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }else Toast.makeText(this@LoginScreen, "Error", Toast.LENGTH_LONG).show()
+
         //Here I am declaring a button and giving it the XML button via ID, in your case do findViewByID(R.id.idofthebutton)
         signUpButton = findViewById(R.id.signUpButton)
         logInButton = findViewById(R.id.logInButton)
@@ -33,10 +40,21 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
         }
         logInButton.setOnClickListener {
             if(validateEmail(logInEmailEditText) && validatePassword(logInPasswordEditText)){
-                val user = User(logInEmailEditText.text.toString(), logInPasswordEditText.text.toString())
-                Toast.makeText(this@LoginScreen, user.emailAddress, Toast.LENGTH_LONG).show()
+                val account = Account(logInEmailEditText.text.toString(), logInPasswordEditText.text.toString())
+                Toast.makeText(this@LoginScreen, account.emailAddress, Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    override fun saveToPreference(emailAddress: String?, password: String?): Boolean {
+        return false
+    }
+
+    override fun getAccountPreference(): Account {
+        val sp = this.getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val email = sp.getString("Email", "")
+        val pass = sp.getString("Password", "")
+        return Account(email, pass)
     }
 
 

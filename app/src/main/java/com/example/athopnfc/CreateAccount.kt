@@ -1,5 +1,8 @@
 package com.example.athopnfc
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -27,12 +30,31 @@ class CreateAccount : AppCompatActivity(), UserFunctions {
 
         btnCreateAccount.setOnClickListener {
             if (validateEmail(emailEditText) && passwordsMatch(passwordEditText, confirmPassEditText)){
-                val user = User(emailEditText.text.toString(), passwordEditText.text.toString())
-                Toast.makeText(this@CreateAccount, user.emailAddress, Toast.LENGTH_LONG).show()
+                val account = Account(emailEditText.text.toString(), passwordEditText.text.toString())
+                if (saveToPreference(account.emailAddress, account.password)){
+                    Toast.makeText(this@CreateAccount, account.emailAddress, Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, LoginScreen::class.java)
+                    startActivity(intent)
+                }else{
+                    Toast.makeText(this@CreateAccount, "Error", Toast.LENGTH_LONG).show()
+                }
             }else{
                 Toast.makeText(this@CreateAccount, "Error", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    override fun saveToPreference(emailAddress: String?, password: String?): Boolean {
+        //TODO check if the user is null or not.
+        val sp : SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val ed : SharedPreferences.Editor = sp.edit()
+        ed.putString("email", emailAddress)
+        ed.putString("Password", password)
+        return ed.commit()
+    }
+
+    override fun getAccountPreference(): Account {
+        TODO("Not yet implemented")
     }
 
 }

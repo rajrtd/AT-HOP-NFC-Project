@@ -2,7 +2,7 @@ package com.example.athopnfc
 
 import android.widget.EditText
 
-interface UserFunctions {
+interface UserFunctions{
     fun validateEmail(email:EditText):Boolean{
         if (email.text.isBlank()){
             return false
@@ -24,4 +24,18 @@ interface UserFunctions {
         }
         return true
     }
+
+    fun saveToPreference(emailAddress: String?, password:String?):Boolean
+
+
+    fun getAccountPreference(): Account
+    /*
+    fun userLogOut():Boolean{
+        val sp : SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val ed : SharedPreferences.Editor = sp.edit()
+        ed.putString("email", null)
+        ed.putString("Password", null)
+        return ed.commit()
+    }
+     */
 }
