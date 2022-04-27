@@ -45,7 +45,6 @@ class CreateAccount : AppCompatActivity(), UserFunctions {
     }
 
     override fun saveToPreference(emailAddress: String?, password: String?): Boolean {
-        //TODO check if the user is null or not.
         val sp : SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
         val ed : SharedPreferences.Editor = sp.edit()
         ed.putString("email", emailAddress)
@@ -54,7 +53,7 @@ class CreateAccount : AppCompatActivity(), UserFunctions {
     }
 
     override fun getAccountPreference(): Account {
-        TODO("Not yet implemented")
+       return Account(null, null)
     }
 
 }

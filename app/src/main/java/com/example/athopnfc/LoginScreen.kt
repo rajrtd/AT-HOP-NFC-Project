@@ -2,6 +2,7 @@ package com.example.athopnfc
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -21,6 +22,7 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
 
         val account = getAccountPreference()
         if(account.emailAddress != null && account.password != null){
+            //TODO change the intent to show the main screen instead of the debug screen again.
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }else Toast.makeText(this@LoginScreen, "Error", Toast.LENGTH_LONG).show()
@@ -41,13 +43,24 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
         logInButton.setOnClickListener {
             if(validateEmail(logInEmailEditText) && validatePassword(logInPasswordEditText)){
                 val account = Account(logInEmailEditText.text.toString(), logInPasswordEditText.text.toString())
-                Toast.makeText(this@LoginScreen, account.emailAddress, Toast.LENGTH_LONG).show()
+                if (saveToPreference(account.emailAddress, account.password)){
+                    Toast.makeText(this@LoginScreen, account.emailAddress, Toast.LENGTH_SHORT).show()
+                    //TODO change the intent to show the mainscreen instead of the login screen again.
+                    val intent = Intent(this, LoginScreen::class.java)
+                    startActivity(intent)
+                }else{
+                    Toast.makeText(this@LoginScreen, "Error", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
 
     override fun saveToPreference(emailAddress: String?, password: String?): Boolean {
-        return false
+        val sp : SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val ed : SharedPreferences.Editor = sp.edit()
+        ed.putString("email", emailAddress)
+        ed.putString("Password", password)
+        return ed.commit()
     }
 
     override fun getAccountPreference(): Account {
