@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "111479537745",
+    "project_id": "athopnfc",
+    "storage_bucket": "athopnfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111479537745:android:6e65252a037604ed8e7870",
+        "android_client_info": {
+          "package_name": "com.example.athopnfc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111479537745-qldqgutg0djbvevnib4id2io2cdhqd77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3h55ogKYrMg6HF57FK3San_rvcdzB7ss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111479537745-qldqgutg0djbvevnib4id2io2cdhqd77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
