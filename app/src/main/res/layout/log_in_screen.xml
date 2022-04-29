@@ -80,7 +80,6 @@
 
 
         <com.google.android.gms.common.SignInButton
-                android:text="Sign in with Google"
                 android:id="@+id/googleSignInButton"
                 android:layout_width="201dp"
                 android:layout_height="45dp"
