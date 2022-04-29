@@ -3,7 +3,6 @@ package com.example.athopnfc
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.widget.AppCompatButton
 import android.widget.Button
 
 class MainActivity : AppCompatActivity() {

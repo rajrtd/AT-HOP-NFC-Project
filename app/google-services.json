@@ -14,6 +14,67 @@
       },
       "oauth_client": [
         {
+          "client_id": "111479537745-3e3jc43sbtkipalvne9goj8sjk2hk2uo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.athopnfc",
+            "certificate_hash": "8e3c280fdfc1eb7be95d3b4ed6ca0fdd77d6bcea"
+          }
+        },
+        {
+          "client_id": "111479537745-cuuaod7b4qdo1vqgvdb21ra2o5n1k2cn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.athopnfc",
+            "certificate_hash": "69616094d59de9f925040e002c2eb4148260e188"
+          }
+        },
+        {
+          "client_id": "111479537745-pvmcmkhpph5qve7trndgotk9d96f2da6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.athopnfc",
+            "certificate_hash": "579764209804c4b5c98dc6e64d98e57eb077d6f8"
+          }
+        },
+        {
+          "client_id": "111479537745-qldqgutg0djbvevnib4id2io2cdhqd77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3h55ogKYrMg6HF57FK3San_rvcdzB7ss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111479537745-qldqgutg0djbvevnib4id2io2cdhqd77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111479537745:android:cab5051121a1f6c18e7870",
+        "android_client_info": {
+          "package_name": "com.example.firebasetesting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111479537745-3d3qfm72ok5lo6p5kgjpqplfgpikcjhj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebasetesting",
+            "certificate_hash": "8e3c280fdfc1eb7be95d3b4ed6ca0fdd77d6bcea"
+          }
+        },
+        {
           "client_id": "111479537745-qldqgutg0djbvevnib4id2io2cdhqd77.apps.googleusercontent.com",
           "client_type": 3
         }
