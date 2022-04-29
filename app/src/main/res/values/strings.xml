@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">ATHOPNFC</string>
-    <string name="gym_card">Gym Card</string>
+    <string name="gym_card">Gym Crd</string>
     <string name="at_hop_card">ATHOP Card</string>
     <string name="loyalty_card">Loyalty Card</string>
-<!--    <string name="your_web_client_id">"111479537745-qldqgutg0djbvevnib4id2io2cdhqd77.apps.googleusercontent.com "</string>-->
+    <string name="sign_up">Sign up</string>
+    <string name="email">Email...</string>
+    <string name="password">Password...</string>
+    <string name="confirm_password">Confirm Password...</string>
+    <string name="create_account">Create Account</string>
+    <string name="logo">Logo</string>
 </resources>
-

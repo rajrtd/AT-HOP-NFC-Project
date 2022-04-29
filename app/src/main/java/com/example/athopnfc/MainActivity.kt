@@ -3,7 +3,6 @@ package com.example.athopnfc
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.widget.AppCompatButton
 import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
@@ -12,10 +11,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val button : Button = findViewById(R.id.debugButton)
-
+        
         button.setOnClickListener {
             val intent = Intent(this, LoginScreen::class.java)
             startActivity(intent)
+        }
+        val button2: Button = findViewById(R.id.alreadyLogged)
+        button2.setOnClickListener {
+            val intent2 = Intent(this, MainScreen::class.java)
+            startActivity(intent2)
         }
     }
 }

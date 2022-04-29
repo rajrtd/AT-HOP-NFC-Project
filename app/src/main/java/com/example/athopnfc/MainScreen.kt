@@ -20,6 +20,5 @@ class MainScreen : AppCompatActivity() {
             val intent = Intent(this, SelectCardScreen::class.java)
             startActivity(intent)
         }
-
     }
 }
