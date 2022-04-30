@@ -17,16 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name=".LoginScreen" android:label="LogIn"></activity>
         <activity android:name=".CreateAccount" android:label="CreateAcc"></activity>
         <activity android:name=".MainScreen" android:label="add Card"></activity>
-=======
-        <activity android:name=".LoginScreen" android:label="LogIn"/>
-        <activity android:name=".CreateAccount" android:label="CreateAcc"/>
-        <activity android:name=".MainScreen" android:label="Main"/>
-        <activity android:name=".SelectCardScreen" android:label="SelectCardType"/>
->>>>>>> Raj
     </application>
 
 </manifest>
