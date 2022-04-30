@@ -3,21 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/activity_main.xml" value="0.3582427536231884" />
-        <entry key="..\:/todo/BCIS-AUT(S12020)/Git/AT-HOP-NFC-Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3880208333333333" />
-        <entry key="..\:/todo/BCIS-AUT(S12020)/Git/AT-HOP-NFC-Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3880208333333333" />
-        <entry key="..\:/todo/BCIS-AUT(S12020)/Git/AT-HOP-NFC-Project/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/todo/BCIS-AUT(S12020)/Git/AT-HOP-NFC-Project/app/src/main/res/layout/create_account_screen.xml" value="0.37083333333333335" />
-        <entry key="..\:/todo/BCIS-AUT(S12020)/Git/AT-HOP-NFC-Project/app/src/main/res/layout/log_in_screen.xml" value="0.37083333333333335" />
-        <entry key="..\:/todo/BCIS-AUT(S12020)/Git/AT-HOP-NFC-Project/app/src/main/res/layout/main_screen.xml" value="0.20272572402044292" />
-        <entry key="..\:/todo/BCIS-AUT(S12020)/Git/AT-HOP-NFC-Project/app/src/main/res/drawable/custom_add_cards_button.xml" value="0.36822916666666666" />
-        <entry key="..\:/todo/BCIS-AUT(S12020)/Git/AT-HOP-NFC-Project/app/src/main/res/layout/add_cards.xml" value="0.1734375" />
-        <entry key="..\:/todo/BCIS-AUT(S12020)/Git/AT-HOP-NFC-Project/app/src/main/res/layout/settings_panel.xml" value="0.35104166666666664" />
-        <entry key="..\:/todo/BCIS-AUT(S12020)/Git/AT-HOP-NFC-Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.36822916666666666" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.36822916666666666" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/drawable/custom_add_cards_button.xml" value="0.36822916666666666" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.36822916666666666" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/add_card.xml" value="0.33" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/add_cards.xml" value="0.1734375" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/create_account_screen.xml" value="0.37083333333333335" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/log_in_screen.xml" value="0.37083333333333335" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/main_screen.xml" value="0.20272572402044292" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/settings_panel.xml" value="0.35104166666666664" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.36822916666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android API 32 Platform" project-jdk-type="Android SDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
