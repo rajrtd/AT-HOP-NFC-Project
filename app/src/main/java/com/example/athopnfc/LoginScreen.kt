@@ -16,6 +16,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -103,10 +105,6 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
                 Log.w(TAG, "Google sign in failed", e)
             }
         }
-    }
-
-    override fun saveToPreference(emailAddress: String?, password: String?): Boolean {
-        val sp: SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
     }
 
     // To navigate to the LoginScreen
