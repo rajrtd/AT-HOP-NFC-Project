@@ -3,6 +3,7 @@ package com.example.athopnfc
 import android.widget.EditText
 
 interface UserFunctions{
+
     fun validateEmail(email:EditText):Boolean{
         if (email.text.isBlank()){
             return false
@@ -27,7 +28,6 @@ interface UserFunctions{
 
     fun saveToPreference(emailAddress: String?, password:String?):Boolean
 
-
     fun getAccountPreference(): Account
     /*
     fun userLogOut():Boolean{
@@ -43,4 +43,5 @@ interface UserFunctions{
     //TODO: Function to write to database when the user logs in or when the user creates an account.
     //TODO: if user has logged in and not logged out, query the database for the user login and password to see if it matches.
 
+    //fun firebaseAuthWithGoogle(idToken: String)
 }
