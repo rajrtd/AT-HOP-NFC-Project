@@ -33,8 +33,10 @@ class CreateAccount : AppCompatActivity(), UserFunctions {
         btnCreateAccount = findViewById(R.id.createAccountButton)
 
         btnCreateAccount.setOnClickListener {
+            /*
             if (validateEmail(emailEditText) && passwordsMatch(passwordEditText, confirmPassEditText)){
                 val account = Account(emailEditText.text.toString(), passwordEditText.text.toString())
+
                 if (saveToPreference(account.emailAddress, account.password)){
                     Toast.makeText(this@CreateAccount, account.emailAddress, Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, LoginScreen::class.java)
@@ -46,8 +48,12 @@ class CreateAccount : AppCompatActivity(), UserFunctions {
                 Toast.makeText(this@CreateAccount, "Error", Toast.LENGTH_LONG).show()
             }
         }
-    }
+        */
 
+        }
+    }
+}
+/*
     override fun saveToPreference(emailAddress: String?, password: String?): Boolean {
         val sp : SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
         val ed : SharedPreferences.Editor = sp.edit()
@@ -59,5 +65,4 @@ class CreateAccount : AppCompatActivity(), UserFunctions {
     override fun getAccountPreference(): Account {
        return Account(null, null)
     }
-
-}
+*/

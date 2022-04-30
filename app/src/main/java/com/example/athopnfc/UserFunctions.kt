@@ -2,34 +2,37 @@ package com.example.athopnfc
 
 import android.widget.EditText
 
-interface UserFunctions{
+interface UserFunctions {
 
-    fun validateEmail(email:EditText):Boolean{
-        if (email.text.isBlank()){
-            return false
-        }
-        return true
-    }
-    fun passwordsMatch(password:EditText, confirmPassword:EditText):Boolean{
-        if (password.text.toString() != confirmPassword.text.toString()){
-            return false
-        }
-        if (password.text.toString().isBlank() || confirmPassword.text.toString().isBlank()){
-            return false
-        }
-        return true
-    }
-    fun validatePassword(password:EditText): Boolean{
-        if (password.text.toString().isBlank()){
+    fun validateEmail(email: EditText): Boolean {
+        if (email.text.isBlank()) {
             return false
         }
         return true
     }
 
+    fun passwordsMatch(password: EditText, confirmPassword: EditText): Boolean {
+        if (password.text.toString() != confirmPassword.text.toString()) {
+            return false
+        }
+        if (password.text.toString().isBlank() || confirmPassword.text.toString().isBlank()) {
+            return false
+        }
+        return true
+    }
+
+    fun validatePassword(password: EditText): Boolean {
+        if (password.text.toString().isBlank()) {
+            return false
+        }
+        return true
+    }
+}
+/*
     fun saveToPreference(emailAddress: String?, password:String?):Boolean
 
     fun getAccountPreference(): Account
-    /*
+
     fun userLogOut():Boolean{
         val sp : SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
         val ed : SharedPreferences.Editor = sp.edit()
@@ -44,4 +47,3 @@ interface UserFunctions{
     //TODO: if user has logged in and not logged out, query the database for the user login and password to see if it matches.
 
     //fun firebaseAuthWithGoogle(idToken: String)
-}

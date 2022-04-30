@@ -28,7 +28,7 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
     private lateinit var signUpButton: Button
     private lateinit var logInButton: Button
     private lateinit var myGoogleSignInClient: GoogleSignInClient
-    private lateinit var myGoogleSignInOptions: GoogleSignInOptions
+    //private lateinit var myGoogleSignInOptions: GoogleSignInOptions
     private lateinit var googlSgnInBtn: SignInButton
     private lateinit var sgnUpBtn: Button
     private lateinit var auth: FirebaseAuth
@@ -50,15 +50,15 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
         logInEmailEditText = findViewById(R.id.emailField)
         logInPasswordEditText = findViewById(R.id.passwordField)
         googlSgnInBtn = findViewById(R.id.googleSignInButton)
-        myGoogleSignInClient = GoogleSignIn.getClient(this, myGoogleSignInOptions)
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        myGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+         val myGoogleSignInOptions : GoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
+        myGoogleSignInClient = GoogleSignIn.getClient(this, myGoogleSignInOptions)
         //Now that I have the button object I can access the action listener
         signUpButton.setOnClickListener {
             //Making an intent object i think, well you just give it this class and the next one.
@@ -70,7 +70,7 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
         logInButton.setOnClickListener {
             if (validateEmail(logInEmailEditText) && validatePassword(logInPasswordEditText)) {
                 val account = Account(logInEmailEditText.text.toString(), logInPasswordEditText.text.toString())
-
+                /*
                 if (saveToPreference(account.emailAddress, account.password)) {
                     Toast.makeText(this@LoginScreen, account.emailAddress, Toast.LENGTH_SHORT).show()
                     //TODO change the intent to show the mainscreen instead of the login screen again.
@@ -79,6 +79,7 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
                 } else {
                     Toast.makeText(this@LoginScreen, "Error", Toast.LENGTH_LONG).show()
                 }
+                */
             }
         }
 
@@ -117,7 +118,7 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
         startActivity(Intent(this, MainScreen::class.java))
         finish()
     }
-
+/*
     override fun saveToPreference(emailAddress: String?, password: String?): Boolean {
         // Added this. for sp variable
         val sp: SharedPreferences = this.getSharedPreferences("Login", Context.MODE_PRIVATE)
@@ -133,7 +134,7 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
         val pass = sp.getString("Password", "")
         return Account(email, pass)
     }
-
+*/
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
