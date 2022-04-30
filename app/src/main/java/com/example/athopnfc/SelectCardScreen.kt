@@ -9,7 +9,7 @@ class SelectCardScreen :AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.add_cards)
+        setContentView(R.layout.add_card)
     }
 
 }
