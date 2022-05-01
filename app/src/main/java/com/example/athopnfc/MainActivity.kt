@@ -1,41 +1,53 @@
 package com.example.athopnfc
 
 import android.os.Bundle
+import android.widget.TableLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
+import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.example.athopnfc.fragments.AccountFragment
 import com.example.athopnfc.fragments.HomepageFragment
 import com.example.athopnfc.fragments.RecordsFragment
+import com.example.athopnfc.fragments.TabPageAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
-
-    private val homepageFragment = HomepageFragment()
-    private val recordsFragment = RecordsFragment()
-    private val accountFragment = AccountFragment()
-    //val bottomnavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+class MainActivity : AppCompatActivity()
+{
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        replaceFragment(homepageFragment)
+        setUpTabBar()
+    }
 
+    private fun setUpTabBar()
+    {
+        val adapter = TabPageAdapter(this, tabLayout.tabCount)
+        viewPager.adapter = adapter
 
-        /*bottomnavigation.setOnNavigationItemSelectedListener { it:MenuItem
-            when(it.itemId){
-                R.id.ic_cardpage -> replaceFragment(homepageFragment)
-                R.id.ic_records -> replaceFragment(recordsFragment)
-                R.id.ic_account -> replaceFragment(accountFragment)
-
+        viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback()
+        {
+            override fun onPageSelected(position: Int) {
+                tabLayout.selectTab(tabLayout.getTabAt(position))
             }
-            true
-        }*/
+        })
+
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener
+        {
+            override fun onTabSelected(tab: TabLayout.Tab)
+            {
+                viewPager.currentItem = tab.position
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
     }
 
-    private fun replaceFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, fragment)
-        transaction.commit()
-    }
 }
+
+
