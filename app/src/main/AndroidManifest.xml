@@ -14,10 +14,12 @@
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".LoginScreen" android:label="LogIn"></activity>
+        <activity android:name=".CreateAccount" android:label="CreateAcc"></activity>
+        <activity android:name=".MainScreen" android:label="add Card"></activity>
     </application>
 
 </manifest>

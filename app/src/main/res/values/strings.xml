@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">ATHOPNFC</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gym_card">gym_card</string>
+    <string name="at_hop_card">at_hop_card</string>
+    <string name="loyalty_card">loyalty_card</string>
+    <string name="sign_up">Sign up</string>
+    <string name="email">Email...</string>
+    <string name="password">Password...</string>
+    <string name="confirm_password">Confirm Password...</string>
+    <string name="create_account">Create Account</string>
+    <string name="logo">Logo</string>
 </resources>
