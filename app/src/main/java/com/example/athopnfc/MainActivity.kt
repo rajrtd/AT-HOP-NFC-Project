@@ -12,7 +12,7 @@ import com.example.athopnfc.fragments.RecordsFragment
 import com.example.athopnfc.fragments.TabPageAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.navigation_layout.*
 
 class MainActivity : AppCompatActivity()
 {
