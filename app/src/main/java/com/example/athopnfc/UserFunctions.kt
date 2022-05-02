@@ -42,6 +42,4 @@ interface UserFunctions{
     //TODO: Function to write to sharedpreferences when the user logs in or when the user creates an account.
     //TODO: Function to write to database when the user logs in or when the user creates an account.
     //TODO: if user has logged in and not logged out, query the database for the user login and password to see if it matches.
-
-    //fun firebaseAuthWithGoogle(idToken: String)
 }

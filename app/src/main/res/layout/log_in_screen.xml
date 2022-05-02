@@ -78,7 +78,6 @@
             android:layout_marginTop="460dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="92dp">
 
-
         <com.google.android.gms.common.SignInButton
                 android:id="@+id/googleSignInButton"
                 android:layout_width="201dp"

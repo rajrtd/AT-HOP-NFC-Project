@@ -59,5 +59,4 @@ class CreateAccount : AppCompatActivity(), UserFunctions {
     override fun getAccountPreference(): Account {
        return Account(null, null)
     }
-
 }

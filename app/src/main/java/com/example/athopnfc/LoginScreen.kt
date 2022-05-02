@@ -27,13 +27,12 @@ import com.google.firebase.ktx.Firebase
 //Here we can see the AppCompatActivity() extend
 class LoginScreen : AppCompatActivity(), UserFunctions
 {
-
     private lateinit var logInEmailEditText: EditText
     private lateinit var logInPasswordEditText: EditText
     private lateinit var signUpButton: Button
     private lateinit var logInButton: Button
     private lateinit var myGoogleSignInClient: GoogleSignInClient
-    private lateinit var myGoogleSignInOptions: GoogleSignInOptions
+    //private lateinit var myGoogleSignInOptions: GoogleSignInOptions
     private lateinit var googlSgnInBtn: SignInButton
     private lateinit var sgnUpBtn: Button
     private lateinit var auth: FirebaseAuth
@@ -47,7 +46,6 @@ class LoginScreen : AppCompatActivity(), UserFunctions
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.log_in_screen)
         auth = Firebase.auth
@@ -58,15 +56,16 @@ class LoginScreen : AppCompatActivity(), UserFunctions
         logInEmailEditText = findViewById(R.id.emailField)
         logInPasswordEditText = findViewById(R.id.passwordField)
         googlSgnInBtn = findViewById(R.id.googleSignInButton)
-        myGoogleSignInClient = GoogleSignIn.getClient(this, myGoogleSignInOptions)
+
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        myGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        val myGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
+        myGoogleSignInClient = GoogleSignIn.getClient(this, myGoogleSignInOptions)
         //Now that I have the button object I can access the action listener
         signUpButton.setOnClickListener {
             //Making an intent object i think, well you just give it this class and the next one.
@@ -125,7 +124,6 @@ class LoginScreen : AppCompatActivity(), UserFunctions
     // To navigate to the LoginScreen
     private fun updateUI(user: FirebaseUser?)
     {
-
         if (user == null)
         {
             Log.w(TAG, "User is null, not going to navigate")
@@ -164,7 +162,6 @@ class LoginScreen : AppCompatActivity(), UserFunctions
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
                     updateUI(user)
-
                 }
                 else
                 {
