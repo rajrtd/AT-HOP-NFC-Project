@@ -23,7 +23,9 @@ class MainScreen : AppCompatActivity(){
         btnLogOut = findViewById(R.id.btnLogOut)
         btnLogOut.setOnClickListener {
             auth.signOut()
-            startActivity(Intent(this, LoginScreen::class.java))
+            val logoutIntent = Intent(this, LoginScreen::class.java)
+            logoutIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(logoutIntent)
         }
     }
 }
