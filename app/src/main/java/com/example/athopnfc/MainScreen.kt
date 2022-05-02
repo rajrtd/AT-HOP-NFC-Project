@@ -1,31 +1,39 @@
 package com.example.athopnfc
 
+import android.content.Intent
 import android.os.Bundle
-
-import android.widget.TableLayout
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import com.example.athopnfc.fragments.AccountFragment
-import com.example.athopnfc.fragments.HomepageFragment
-import com.example.athopnfc.fragments.RecordsFragment
 import com.example.athopnfc.fragments.TabPageAdapter
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayout
-import kotlinx.android.synthetic.main.navigation_layout.*
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.main_screen.view.*
+import kotlinx.android.synthetic.main.navigation_layout.*
 
-class MainActivity : AppCompatActivity()
-{
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+class MainScreen : AppCompatActivity(){
+
+    private lateinit var btnLogOut: Button
+    private lateinit var auth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.navigation_layout)
         setUpTabBar()
+
+        /*
+        auth = Firebase.auth
+        btnLogOut = findViewById(R.id.logOutButton)
+
+        btnLogOut.setOnClickListener {
+            auth.signOut()
+            val logoutIntent = Intent(this, LoginScreen::class.java)
+            logoutIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(logoutIntent)
+        }
+         */
     }
 
     private fun setUpTabBar()
@@ -52,7 +60,4 @@ class MainActivity : AppCompatActivity()
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
     }
-
 }
-
-
