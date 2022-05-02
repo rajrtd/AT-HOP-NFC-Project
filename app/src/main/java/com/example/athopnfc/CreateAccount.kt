@@ -20,7 +20,7 @@ class CreateAccount : AppCompatActivity(), UserFunctions {
     private lateinit var btnCreateAccount: Button
 
     //Object that gets called statically.
-    private companion object{
+    private companion object {
         lateinit var auth: FirebaseAuth
     }
 
@@ -37,20 +37,32 @@ class CreateAccount : AppCompatActivity(), UserFunctions {
 
         //Adding an on click listener that listens to the press of the user.
         btnCreateAccount.setOnClickListener {
-            if (validateEmail(emailEditText) && passwordsMatch(passwordEditText, confirmPassEditText)) {    //This is a simple validation for the email and password entered by the user.
-                val account = Account(emailEditText.text.toString(), passwordEditText.text.toString())      //Creating an account object.
+            if (validateEmail(emailEditText) && passwordsMatch(
+                    passwordEditText,
+                    confirmPassEditText
+                )
+            ) {    //This is a simple validation for the email and password entered by the user.
+                val account = Account(
+                    emailEditText.text.toString(),
+                    passwordEditText.text.toString()
+                )      //Creating an account object.
                 //add to database section.
-                auth = FirebaseAuth.getInstance()   //This is pretty much getting a connection to the authentication part of the database, after making a successful connection.
-                auth.createUserWithEmailAndPassword("${account.emailAddress}", "${account.password}").addOnCompleteListener{ //Creating a user in the database with custom log in.
-                    if (it.isSuccessful){ //if the creation of the account is successful
-                        Toast.makeText(this@CreateAccount, account.emailAddress, Toast.LENGTH_SHORT).show() //displays a message to the user.
-                        val intent = Intent(this, LoginScreen::class.java) //intent will get called a few times throughout the code, it basically creates a binding between two applications
-
-                        startActivity(intent)
+                auth =
+                    FirebaseAuth.getInstance()   //This is pretty much getting a connection to the authentication part of the database, after making a successful connection.
+                auth.createUserWithEmailAndPassword("${account.emailAddress}", "${account.password}")
+                    .addOnCompleteListener { //Creating a user in the database with custom log in.
+                        if (it.isSuccessful) { //if the creation of the account is successful
+                            Toast.makeText(this@CreateAccount, account.emailAddress, Toast.LENGTH_SHORT)
+                                .show() //displays a message to the user.
+                            val intent = Intent(
+                                this,
+                                LoginScreen::class.java
+                            ) //intent will get called a few times throughout the code, it basically creates a binding between two applications
+                            startActivity(intent)
+                        }
+                    }.addOnFailureListener { //if creating the account fails it will display a message.
+                        Toast.makeText(this@CreateAccount, "Error", Toast.LENGTH_LONG).show()
                     }
-                }.addOnFailureListener{ //if creating the account fails it will display a message.
-                    Toast.makeText(this@CreateAccount, "Error", Toast.LENGTH_LONG).show()
-                }
             }
         }
     }
