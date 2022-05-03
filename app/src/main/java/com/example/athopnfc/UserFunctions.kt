@@ -28,10 +28,10 @@ interface UserFunctions {
         return true
     }
 }
-/*
     fun saveToPreference(emailAddress: String?, password:String?):Boolean
 
     fun getAccountPreference(): Account
+/*
 
     fun userLogOut():Boolean{
         val sp : SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)

@@ -52,17 +52,17 @@ class CreateAccount : AppCompatActivity(), UserFunctions {
 
         }
     }
-}
-/*
+
     override fun saveToPreference(emailAddress: String?, password: String?): Boolean {
-        val sp : SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
-        val ed : SharedPreferences.Editor = sp.edit()
+        val sp: SharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
+        val ed: SharedPreferences.Editor = sp.edit()
         ed.putString("email", emailAddress)
         ed.putString("Password", password)
         return ed.commit()
     }
 
     override fun getAccountPreference(): Account {
-       return Account(null, null)
+        return Account(null, null)
+
     }
-*/
+}
