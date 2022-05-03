@@ -21,6 +21,6 @@
         <activity android:name=".CreateAccount" android:label="CreateAcc"/>
         <activity android:name=".MainScreen" android:label="Main"/>
         <activity android:name=".SelectCardScreen" android:label="SelectCardType"/>
+        <activity android:name=".AddHopCard" android:label="AddHopCardScreen"/>
     </application>
-
 </manifest>

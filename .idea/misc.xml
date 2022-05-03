@@ -7,8 +7,11 @@
         <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/drawable/custom_add_cards_button.xml" value="0.36822916666666666" />
         <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.36822916666666666" />
         <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/add_athop_card.xml" value="0.22" />
         <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/add_card.xml" value="0.33" />
-        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/add_cards.xml" value="0.1734375" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/add_cards.xml" value="0.33" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/add_gym_card.xml" value="0.1734375" />
+        <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/add_loyalty_card.xml" value="0.1734375" />
         <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/create_account_screen.xml" value="0.37083333333333335" />
         <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/log_in_screen.xml" value="0.37083333333333335" />
         <entry key="..\:/git/AT-HOP-NFC-Project/app/src/main/res/layout/main_screen.xml" value="0.33" />
