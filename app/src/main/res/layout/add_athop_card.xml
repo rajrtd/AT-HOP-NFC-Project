@@ -20,7 +20,7 @@
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Card Number" android:id="@+id/cardNoTxtInpt"/>
+                    android:hint="Card Number" android:id="@+id/hopCardNoTxtInpt"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="315dp"
@@ -31,7 +31,7 @@
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Card Description" android:id="@+id/cardDescTxtInpt"/>
+                    android:hint="Card Description" android:id="@+id/hopCardDescTxtInpt"/>
             <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="315dp"
                     android:layout_height="82dp"
@@ -57,7 +57,7 @@
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Card Name" android:id="@+id/cardNameTxtInpt"/>
+                    android:hint="Card Name" android:id="@+id/hopCardNameTxtInpt"/>
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
