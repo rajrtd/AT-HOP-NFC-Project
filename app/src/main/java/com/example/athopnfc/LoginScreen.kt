@@ -56,17 +56,17 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
             .requestEmail()
             .build()
 
-        myGoogleSignInClient = GoogleSignIn.getClient(this, myGoogleSignInOptions)
+        myGoogleSignInClient = GoogleSignIn.getClient(this, myGoogleSignInOptions) //this is how you interact with the Google sign in API, retrieved directly from firebase
         signUpButton.setOnClickListener {
             val intent = Intent(this, CreateAccount::class.java)
             startActivity(intent)
         }
 
         logInButton.setOnClickListener {
-            if (validateEmail(logInEmailEditText) && validatePassword(logInPasswordEditText)) {
+            if (validateEmail(logInEmailEditText) && validatePassword(logInPasswordEditText)) { //validating user inputs.
                 val account = Account(logInEmailEditText.text.toString(), logInPasswordEditText.text.toString())
 
-                //Sign in to database
+                //Log in without Google account to database and displaying error messages
                 auth.signInWithEmailAndPassword("${account.emailAddress}", "${account.password}").addOnCompleteListener{
                     if (it.isSuccessful){
                         Toast.makeText(this@LoginScreen, account.emailAddress, Toast.LENGTH_SHORT).show()
@@ -79,14 +79,14 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
             }
         }
 
-        googlSgnInBtn.setOnClickListener {
+        googlSgnInBtn.setOnClickListener { //This is to log in with a Google account, the code is also provided from Google firebase
             val sgnInIntent = myGoogleSignInClient.signInIntent
             startActivityForResult(sgnInIntent, RC_GOOGLE_SIGN_IN)
             startActivity(sgnInIntent)
         }
     }
 
-
+    //This whole function interacts with the Google API in order to log in with a google account
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -106,15 +106,14 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
 
     // To navigate to the LoginScreen
     private fun updateUI(user: FirebaseUser?) {
-
         if (user == null) {
             Log.w(TAG, "User is null, not going to navigate")
         }
-
         startActivity(Intent(this, MainScreen::class.java))
         finish()
     }
 
+    //this function uses a token that is given by the Google API to sign in with Google to firebase.
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)

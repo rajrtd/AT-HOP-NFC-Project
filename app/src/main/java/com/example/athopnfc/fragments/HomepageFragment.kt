@@ -13,6 +13,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
+//Homepage fragment basically is for displaying purposes,
+// it allows for us to swipe left and right in the screen without having to press a button.
+//This one is specific to the section of the screen that displays the homepage information.
+//It will eventually have the cards, but for now it has a logout button just for testing purposes.
 class HomepageFragment : Fragment(){
 
     private lateinit var btnLogOut: Button

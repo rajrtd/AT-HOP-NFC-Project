@@ -15,6 +15,7 @@ class MainScreen : AppCompatActivity(){
         setUpTabBar()
     }
 
+    //This function is in charge of setting up a bar at the bottom of the screen in order to allow the user interaction.
     private fun setUpTabBar()
     {
         val adapter = TabPageAdapter(this, tabLayout.tabCount)

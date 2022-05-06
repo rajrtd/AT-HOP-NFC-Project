@@ -2,6 +2,8 @@ package com.example.athopnfc
 
 import android.widget.EditText
 
+// This is just an interface to declare functions that are relevant to the user account.
+// May be renamed to account functions.
 interface UserFunctions {
 
     fun validateEmail(email: EditText): Boolean {
