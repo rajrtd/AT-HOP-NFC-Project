@@ -18,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".LoginScreen" android:label="LogIn"/>
+        <activity android:name=".CreateAccount" android:label="CreateAcc"/>
+        <activity android:name=".MainScreen" android:label="Main"/>
+        <activity android:name=".SelectCardScreen" android:label="SelectCardType"/>
+        <activity android:name=".AddHopCardScreen" android:label="AddHopCardScreen"/>
+        <activity android:name=".AddGymCardScreen" android:label="AddGymCardScreen"/>
+        <activity android:name=".AddLoyaltyCardScreen" android:label="AddLoyaltyCardScreen"/>
     </application>
-
 </manifest>
