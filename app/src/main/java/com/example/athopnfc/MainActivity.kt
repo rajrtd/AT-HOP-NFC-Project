@@ -1,23 +1,12 @@
 package com.example.athopnfc
 
-import android.os.Bundle
-
-import android.widget.TableLayout
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.ViewPager2
-import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import com.example.athopnfc.fragments.AccountFragment
-import com.example.athopnfc.fragments.HomepageFragment
-import com.example.athopnfc.fragments.RecordsFragment
-import com.example.athopnfc.fragments.TabPageAdapter
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.tabs.TabLayout
-import kotlinx.android.synthetic.main.navigation_layout.*
+import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-
-
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 //The whole purpose of this class is to find out if the user is already logged in.
 class MainActivity : AppCompatActivity() {
@@ -27,9 +16,10 @@ class MainActivity : AppCompatActivity() {
     //On creation of the screen it will display the main activity which is just a blank screen.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.navigation_layout)
-        setUpTabBar()
+        setContentView(R.layout.activity_main)
+        auth = Firebase.auth
     }
+
     override fun onStart(){
         super.onStart()
         val currentUser : FirebaseUser? = auth.currentUser
@@ -48,4 +38,3 @@ class MainActivity : AppCompatActivity() {
     }
 }
 // HELP ME
-

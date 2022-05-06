@@ -82,12 +82,12 @@ class LoginScreen : AppCompatActivity(), UserFunctions {
                             startActivity(intent)
                         }
                     }.addOnFailureListener {
-                    Toast.makeText(
-                        this@LoginScreen,
-                        "Incorrect password or account does not exist.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+                        Toast.makeText(
+                            this@LoginScreen,
+                            "Incorrect password or account does not exist.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
             }
         }
         googlSgnInBtn.setOnClickListener { //This is to log in with a Google account, the code is also provided from Google firebase
