@@ -1,24 +1,43 @@
 package com.example.athopnfc
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
+import com.example.athopnfc.fragments.TabPageAdapter
+import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.navigation_layout.*
 
-class MainScreen : AppCompatActivity() {
+class MainScreen : AppCompatActivity(){
 
-    private lateinit var addCardsBtn: Button
-    // What is persistable bundle? - second paramater in onCreate function
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_screen)
+        setContentView(R.layout.navigation_layout)
+        setUpTabBar()
+    }
 
-        addCardsBtn = findViewById(R.id.addCardsBtn)
+    //This function is in charge of setting up a bar at the bottom of the screen in order to allow the user interaction.
+    private fun setUpTabBar()
+    {
+        val adapter = TabPageAdapter(this, tabLayout.tabCount)
+        viewPager.adapter = adapter
 
-        addCardsBtn.setOnClickListener {
-            val intent = Intent(this, SelectCardScreen::class.java)
-            startActivity(intent)
-        }
+        viewPager.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback()
+        {
+            override fun onPageSelected(position: Int) {
+                tabLayout.selectTab(tabLayout.getTabAt(position))
+            }
+        })
+
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener
+        {
+            override fun onTabSelected(tab: TabLayout.Tab)
+            {
+                viewPager.currentItem = tab.position
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
     }
 }
