@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<host-apdu-service xmlns:android="http://schemas.android.com/apk/res/android"
+                   android:description="@string/servicedesc"
+                   android:requireDeviceUnlock="false">
+    <aid-group android:description="@string/aiddescription"
+               android:category="other">
+        <aid-filter android:name="F0000004231001"/> <!-- This will be for AT HOP Cards -->
+        <aid-filter android:name="F0000004443331"/> <!-- This one for Gym tags -->
+        <aid-filter android:name="F0000005231001"/> <!-- This one for loyalty cards -->
+    </aid-group>
+</host-apdu-service>

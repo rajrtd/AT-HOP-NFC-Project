@@ -9,4 +9,6 @@
     <string name="confirm_password">Confirm Password...</string>
     <string name="create_account">Create Account</string>
     <string name="logo">Logo</string>
+    <string name="servicedesc">servicedesc</string>
+    <string name="aiddescription">aiddescription</string>
 </resources>
