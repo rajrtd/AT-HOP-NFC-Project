@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.example.athopnfc.LoginScreen
 import com.example.athopnfc.R
+import com.example.athopnfc.SelectCardScreen
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -20,6 +21,7 @@ import com.google.firebase.ktx.Firebase
 class HomepageFragment : Fragment(){
 
     private lateinit var btnLogOut: Button
+    private lateinit var addCardsBtn: Button
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
@@ -28,12 +30,21 @@ class HomepageFragment : Fragment(){
     ): View? {
         val view = inflater.inflate(R.layout.fragment_homepage, container, false)
         auth = Firebase.auth
+
         btnLogOut = view.findViewById(R.id.logOutButton)
+        addCardsBtn = view.findViewById(R.id.addCardsBtn)
+
         btnLogOut.setOnClickListener {
             val logoutIntent = Intent(view.context, LoginScreen::class.java)
             logoutIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(logoutIntent)
         }
+
+        addCardsBtn.setOnClickListener {
+            val addCardsIntent = Intent(view.context, SelectCardScreen::class.java)
+            startActivity(addCardsIntent)
+        }
+
         return view
     }
 }
