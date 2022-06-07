@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import com.example.athopnfc.LoginScreen
 import com.example.athopnfc.R
 import com.example.athopnfc.SelectCardScreen
+import com.example.athopnfc.nfc.HostCardEmulatorService
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -23,6 +25,7 @@ class HomepageFragment : Fragment(){
     private lateinit var btnLogOut: Button
     private lateinit var addCardsBtn: Button
     private lateinit var auth: FirebaseAuth
+    private lateinit var btnCard : Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +36,14 @@ class HomepageFragment : Fragment(){
 
         btnLogOut = view.findViewById(R.id.logOutButton)
         addCardsBtn = view.findViewById(R.id.addCardsBtn)
+        btnCard = view.findViewById(R.id.hopCardButton)
 
+        val hce = HostCardEmulatorService()
+
+        btnCard.setOnClickListener{
+            hce.cardPressed(confirm = true)
+            Toast.makeText(this@HomepageFragment.context, "Communicating with NFC if receiver is ready", Toast.LENGTH_SHORT).show()
+        }
         btnLogOut.setOnClickListener {
             val logoutIntent = Intent(view.context, LoginScreen::class.java)
             logoutIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -46,3 +56,4 @@ class HomepageFragment : Fragment(){
         return view
     }
 }
+

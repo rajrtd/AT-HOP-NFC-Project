@@ -8,7 +8,6 @@ import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.lang.Boolean.TRUE
-import org.mockito.*
 
 @RunWith(AndroidJUnit4::class)
 class AddHopCardScreenTest {

@@ -3,11 +3,16 @@ package com.example.athopnfc.nfc
 import android.nfc.cardemulation.HostApduService
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.Toast
+import com.example.athopnfc.fragments.HomepageFragment
 
 
 //The purpose of this class is to send a NFC message.
 class HostCardEmulatorService : HostApduService(){
 
+
+    var cardButton : Boolean? = false
     /*The object companion is for validating the NFC communication, CLA dictates the security level but we will leave it at 00. INS basically is the command that lets
     the reader know the intent of the connection, 'A4' selects a file.
      */
@@ -29,12 +34,16 @@ class HostCardEmulatorService : HostApduService(){
         Log.d(TAG, "Deactivated: $reason")
     }
 
+    fun cardPressed(confirm : Boolean?){
+        cardButton = confirm
+    }
 
     /*
     This method gets called automatically when the phone receives any NFC message, and it takes care of only communicating with the specified AID.
     It also replies with the different error messages.
      */
     override fun processCommandApdu(commandApdu: ByteArray?, extras: Bundle?): ByteArray {
+
         if (commandApdu == null) { //Her
             return Utils.hexStringToByteArray(STATUS_FAILED)
         }
@@ -51,11 +60,11 @@ class HostCardEmulatorService : HostApduService(){
 
         // For this section we have split the different AIDs into different if statements,
         // with the intent of also checking that a button is being clicked regarding the same card.
-        return if (hexCommandApdu.substring(10, 24) == AIDATHOP)  { //AT HOP card AID.
+        return if (hexCommandApdu.substring(10, 24) == AIDATHOP && cardButton == true)  { //AT HOP card AID.
             Utils.hexStringToByteArray(STATUS_SUCCESS)
-        } else if ( hexCommandApdu.substring(10, 24) == AIDGYM){    //GYM tag AID.
+        } else if ( hexCommandApdu.substring(10, 24) == AIDGYM && cardButton == true){    //GYM tag AID.
             Utils.hexStringToByteArray(STATUS_SUCCESS)
-        } else if (hexCommandApdu.substring(10, 24) == AIDLOYAL){   //Loyalty tag AID.
+        } else if (hexCommandApdu.substring(10, 24) == AIDLOYAL && cardButton == true){   //Loyalty tag AID.
             Utils.hexStringToByteArray(STATUS_SUCCESS)
         } else {                                                    //Else return a failed status.
             Utils.hexStringToByteArray(STATUS_FAILED)
