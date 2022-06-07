@@ -62,7 +62,6 @@ class AddHopCardScreen : AppCompatActivity() {
         }
     }
 
-
     private fun validateEmptyString(cardName : EditText, cardNumber : EditText, cardDesc : EditText) : Boolean{
         return cardName.text.toString().isNotBlank() && cardNumber.text.toString()
             .isNotBlank() && cardDesc.text.toString().isNotBlank()
