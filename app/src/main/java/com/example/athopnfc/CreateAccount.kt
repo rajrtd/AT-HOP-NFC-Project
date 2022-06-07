@@ -52,6 +52,7 @@ class CreateAccount : AppCompatActivity(), UserFunctions {
                 auth.createUserWithEmailAndPassword("${account.emailAddress}", "${account.password}")
                     .addOnCompleteListener { //Creating a user in the database with custom log in.
                         if (it.isSuccessful) { //if the creation of the account is successful
+                            btnCreateAccount.isEnabled = false
                             Toast.makeText(this@CreateAccount, account.emailAddress, Toast.LENGTH_SHORT)
                                 .show() //displays a message to the user.
                             val intent = Intent(
